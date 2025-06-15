@@ -1,11 +1,11 @@
-import css from "./AppBar.module.css";
+import css from "./Header.module.css";
+import Navigation from "../Navigation/Navigation";
+import UserMemu from "../UserMemu/UserMemu";
+import AuthNav from "../AuthNav/AuthNav";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
-import AuthNav from "../AuthNav/AuthNav.jsx";
-import UserMemu from "../UserMemu/UserMemu.jsx";
-import Navigation from "../Navigation/Navigation.jsx";
 
-export default function AppBar() {
+export default function Header() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (

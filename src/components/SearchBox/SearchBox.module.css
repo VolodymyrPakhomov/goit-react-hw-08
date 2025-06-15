@@ -1,25 +1,21 @@
-.wrapper {
-  margin-bottom: 20px;
-}
-
-.label {
+.form {
   display: flex;
   flex-direction: column;
-  font-weight: 600;
-  color: #333;
+  gap: 12px;
+  width: 320px;
+  border: 1px solid #2c2c2c;
+  border-radius: 20px;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #f1e9da;
+  color: #273733;
 }
-
+.label {
+  align-self: flex-start;
+}
 .input {
-  margin-top: 8px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-  width: 260px;
-}
-
-.input:focus {
-  outline: none;
-  border-color: #8fabc7;
-  box-shadow: 0 0 4px rgba(123, 142, 161, 0.4);
+  width: 100%;
+  stroke: #2b3f32;
 }

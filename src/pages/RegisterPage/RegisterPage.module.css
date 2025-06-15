@@ -1,6 +1,7 @@
 .pageTitle {
+  font-size: 2rem;
   font-weight: bold;
-  color: #f1e9da;
-  margin: 20px auto;
+  color: #343434;
+  margin: 20px 0;
   text-align: center;
 }

@@ -1,14 +1,23 @@
 .authNav {
   display: flex;
-  gap: 20px;
-}
 
-.link {
+  background-color: #f1e9da;
+
+  color: #ffffff;
+  align-items: center;
+  margin: 10px auto;
+  justify-content: space-around;
+}
+.activeLink {
+  color: #000000;
+  text-decoration: underline;
+  font-size: 30px;
   text-decoration: none;
-  color: #333;
 }
-
-.active {
-  color: #007bff;
-  font-weight: bold;
+.link {
+  color: #707070ba;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 30px;
+  text-decoration: none;
 }

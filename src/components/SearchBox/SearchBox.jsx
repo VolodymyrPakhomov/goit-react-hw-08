@@ -1,22 +1,40 @@
-import { useDispatch, useSelector } from "react-redux";
-import { setNameFilter } from "../../redux/filters/slice";
-import { selectNameFilter } from "../../redux/filters/selectors";
 import css from "./SearchBox.module.css";
-
+import { useSelector, useDispatch } from "react-redux";
+import { filterSlice } from "../../redux/filtres/slice";
+import { Formik, Form, Field } from "formik";
+import * as Yup from "yup";
 export default function SearchBox() {
   const dispatch = useDispatch();
-  const filter = useSelector(selectNameFilter);
-
-  const handleChange = (event) => {
-    dispatch(setNameFilter(event.target.value));
-  };
-
+  const filterValue = useSelector((state) => state.filters.name);
+  const validationSchema = Yup.object({
+    search: Yup.string()
+      .min(3, "You must enter at least 3 characters")
+      .max(50, "You cannot write more than 50 characters"),
+  });
   return (
-    <div className={css.searchBox}>
-      <label>
-        Find contacts by name
-        <input type="text" value={filter} onChange={handleChange} />
-      </label>
+    <div>
+      <Formik
+        initialValues={{ search: filterValue }}
+        validationSchema={validationSchema}
+        onSubmit={() => {}}
+      >
+        {({ handleChange }) => (
+          <Form className={css.form}>
+            <label htmlFor="search" className={css.label}>
+              Find contacts by name
+            </label>
+            <Field
+              className={css.input}
+              type="text"
+              name="search"
+              onChange={(event) => {
+                handleChange(event);
+                dispatch(filterSlice.actions.setFilter(event.target.value));
+              }}
+            />
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 }

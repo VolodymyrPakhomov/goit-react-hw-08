@@ -1,10 +1,14 @@
-/* Стилі для контейнера */
 .container {
-  text-align: center;
-  padding: 20px;
-}
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
 
-/* Стилі для заголовка */
-h1 {
+  align-items: center;
   margin-bottom: 20px;
+  align-content: space-between;
+  color: #000000;
+  justify-content: space-between;
+}
+.welcomeMessage {
+  font-size: 15px;
 }

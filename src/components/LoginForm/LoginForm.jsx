@@ -1,45 +1,38 @@
-import { useDispatch } from "react-redux";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { login } from "../../redux/auth/operations";
-import styles from "./LoginForm.module.css";
-
-function LoginForm() {
+import css from "./LoginForm.module.css";
+import { useDispatch } from "react-redux";
+import { logIn } from "../../redux/auth/operations";
+export default function LoginForm() {
   const dispatch = useDispatch();
-
-  const validationSchema = Yup.object({
-    email: Yup.string().email("Invalid email").required("Required"),
-    password: Yup.string().required("Required"),
-  });
-
+  const handleSubmit = (values, actions) => {
+    dispatch(logIn(values));
+    actions.resetForm();
+  };
   return (
     <Formik
       initialValues={{ email: "", password: "" }}
-      validationSchema={validationSchema}
-      onSubmit={(values, { resetForm }) => {
-        dispatch(login(values));
-        resetForm();
-      }}
+      validationSchema={Yup.object({
+        email: Yup.string().email("Invalid email address").required("Required"),
+        password: Yup.string()
+          .min(6, "Must be at least 6 characters")
+          .required("Required"),
+      })}
+      onSubmit={handleSubmit}
     >
-      <Form className={styles.form}>
-        <label>
+      <Form className={css.form}>
+        <label className={css.label} htmlFor="email">
           Email
-          <Field type="email" name="email" />
-          <ErrorMessage name="email" component="div" className={styles.error} />
         </label>
-        <label>
+        <Field className={css.input} name="email" type="email" />
+        <label className={css.label} htmlFor="password">
           Password
-          <Field type="password" name="password" />
-          <ErrorMessage
-            name="password"
-            component="div"
-            className={styles.error}
-          />
         </label>
-        <button type="submit">Login</button>
+        <Field className={css.input} name="password" type="password" />
+        <button className={css.button} type="submit">
+          Log In
+        </button>
       </Form>
     </Formik>
   );
 }
-
-export default LoginForm;

@@ -1,47 +1,27 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 20px;
+  gap: 12px;
+  width: 320px;
   border: 2px solid #000000;
-  border-radius: 12px;
-  width: 300px;
-  background-color: #f9f9f9;
+  border-radius: 20px;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #f1e9da;
+  color: #747474;
 }
-
-.label {
-  display: flex;
-  flex-direction: column;
-  font-weight: 600;
-  color: #1b1b1b;
-}
-
-.input {
-  margin-top: 8px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-}
-
 .button {
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  background-color: #284f32a9;
-  color: #fff;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 250ms ease;
+  width: 160px;
+  padding: 8px 16px;
+  background-color: #000000;
+  color: #505050;
+  border-color: #000000;
 }
-
-.button:hover {
-  background-color: #519b4d9b;
+.input {
+  width: 100%;
 }
-
-.error {
-  margin-top: 4px;
-  font-size: 14px;
-  color: #d32f2fa0;
+.label {
+  align-self: flex-start;
 }
