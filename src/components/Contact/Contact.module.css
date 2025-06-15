@@ -1,0 +1,66 @@
+.item {
+  display: flex; /* Располагаем информацию о контакте и кнопку в ряд */
+  justify-content: space-between; /* Разносим их по краям */
+  align-items: center; /* Выравниваем по центру вертикально */
+  padding: 10px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  margin-bottom: 10px; /* Отступ между элементами списка */
+  background-color: #fff; /* Белый фон для каждого элемента */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Легкая тень */
+}
+
+/* Если это последний элемент в списке ContactList, можно убрать нижний отступ */
+/* Это можно сделать, добавив класс .lastItem в ContactList.js
+   или используя псевдокласс :last-child, если .item является прямым потомком .list */
+/* .item:last-child {
+  margin-bottom: 0;
+} */
+
+.contactInfo {
+  /* Контейнер для имени и номера, если нужно дополнительно управлять их группой */
+  display: flex;
+  flex-direction: column; /* Имя и номер друг под другом */
+  gap: 4px; /* Небольшой отступ между строками имени и номера */
+}
+
+.text {
+  margin: 0; /* Убираем стандартные отступы у параграфов */
+  display: flex; /* Для выравнивания иконки и текста */
+  align-items: center; /* Выравниваем иконку и текст по вертикали */
+  font-size: 1em;
+  color: #333;
+}
+
+.text:first-child {
+  /* Стили для строки с именем */
+  font-weight: bold;
+}
+
+.text:last-child {
+  /* Стили для строки с номером */
+  font-size: 0.9em;
+  color: #555;
+}
+
+.icon {
+  margin-right: 8px; /* Отступ справа от иконки */
+  font-size: 1.2em; /* Немного увеличим размер иконки */
+  color: #263241cb; /* Пример цвета для иконок (синий) */
+  vertical-align: middle; /* Иногда помогает лучше выровнять иконки */
+}
+
+.button {
+  padding: 8px 12px;
+  background-color: #905f5964; /* Красноватый цвет для кнопки удаления */
+  color: rgb(47, 47, 47);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: #bd483ba3; /* Затемняем при наведении */
+}
